@@ -3,7 +3,7 @@ Securechat is an AES-256 Encrypted Instant messaging platform.
 Securechat tries to be imune to man in the middle attacks by not any user password over the internet at all(encrypted or un encrypted).
 Instead it implement an authentication system that does not require password transfer.
 ## Prerequisite 
-*This is not a beguiner project you need a minimum understanding of JS and Node to tackle this project*
+*This is not a beginner project you need a minimum understanding of JS and Node to tackle this project*
 
 **Node JS**
 **NPM**
