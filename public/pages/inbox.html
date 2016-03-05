@@ -1,0 +1,109 @@
+<!-- <link rel="stylesheet" href="inbox.css" />
+<body   ng-controller="mainController"> -->
+
+
+<div id="header" class="navbar navbar-default navbar-fixed-top navbar-collapse">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="icon-reorder"></i>
+        </button>
+        <a class="navbar-brand" href="/">Secure Chat</a>
+      </div>
+
+      <div class="nav navbar-nav navbar-right">
+        <a ng-click= "disconnect()" class="navbar-brand"><i class="fa fa-shield"></i> Disconnect</a></li>
+      </div>
+    </div>
+
+</div>
+
+
+
+<div id="wrapper" >
+
+  <div id="sidebar-wrapper" class="col-md-3">
+            <div id="sidebar">
+              <div class="page-header">
+                <h3>Contacts</h3>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Find Contact by email" ng-model="$scope.findemail">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" ng-click="find( $scope.findemail )"> Find</button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div  class="col-lg-12" ui-if="findusermsg" ng-show= "findusermsg == false">
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+      						<button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="findusermsg = null"><span aria-hidden="true">&times;</span></button>
+      						<strong>User not found</strong></div>
+                </div>
+                <div  class="col-lg-12" ui-if="findusermsg" ng-show= "findusermsg == true">
+                  <div class="alert alert-success alert-dismissible" role="alert">
+      						<button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="findusermsg = null"><span aria-hidden="true">&times;</span></button>
+      						<strong>User added</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <ul class="nav list-group" >
+                   <!-- <li class="active"><a href="#">Maths</a></li> -->
+                    <li ui-if="contacts" ng-repeat="contact in contacts" ng-click="switch( contact )"><a >{{contact.first_name}} {{contact.last_name}}  <span class="badge" ng-show= "contact.new == true">new</span></a></li>
+                    <!-- <li><a href="">Art and Design <span class="badge">O</span></a> </li> -->
+                </ul >
+              </div>
+            </div>
+        </div>
+        <div id="main-wrapper" class="col-md-9">
+            <div id="main" >
+
+              <div class="page-header">
+                <h3>{{active.first_name}} {{active.last_name}} </h3>
+                <h5> {{active.email}} </h5>
+              </div>
+
+
+              <!-- <div class="bubble2 col-md-10 pull-left" >
+              <p class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget magna et ante suscipit lacinia.
+              Aenean porttitor velit id pretium blandit. Aenean ut sodales ante. Ut faucibus ornare venenatis.
+              Duis sit amet arcu eros. Mauris volutpat vestibulum congue. Nam volutpat, urna eu varius dapibus,
+              velit nisl bibendum lorem, sit amet dapibus sem dolor eu felis.</p>
+              </div>
+
+              <hr class="col-md-12">
+
+              <div class="bubble col-md-10 pull-right" >
+              <p class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget magna et ante suscipit lacinia.
+              Aenean porttitor velit id pretium blandit. Aenean ut sodales ante. Ut faucibus ornare venenatis.
+              Duis sit amet arcu eros. Mauris volutpat vestibulum congue. Nam volutpat, urna eu varius dapibus,
+              velit nisl bibendum lorem, sit amet dapibus sem dolor eu felis.</p>
+              </div> -->
+              <div ui-if="messages" ng-repeat="msg in messages">
+                <p><br></p>
+                <div ng-class="msg.class" >
+                <p class="col-md-12">{{msg.text}}<br/></p>
+                <br>
+                </div>
+                <p><br></p>
+              </div>
+              </div>
+
+                <div class="col-md-12">
+              <div class="form-group col-md-12">
+                <label for="comment">Message:</label>
+                <textarea class="form-control" rows="8" ng-model="$scope.text"></textarea>
+                <button type="button" ng-click="newmsg($scope.text); $scope.text=null; $scope.$digest();" class="btn btn-primary btn-lg btn-block"> > </button>
+              </div>
+
+              </div>
+        </div>
+</div>
+
+
+
+<!--
+
+</body> -->
