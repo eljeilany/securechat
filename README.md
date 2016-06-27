@@ -8,6 +8,10 @@ Instead it implement an authentication system that does not require password tra
 * **NPM**
 * And an **SSL** certificate if you want to run it publicly.
 
+## Demo
+A working Demo of the platform can be found at:
+https://dtccl.com/securechat/#
+
 ## Instalation
 
 run :
